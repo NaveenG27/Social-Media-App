@@ -29,7 +29,7 @@ export function CreatePost({ onPostCreated }: { onPostCreated: () => void }) {
 
       const response = await fetch('/api/posts', {
         method: 'POST',
-        body: formData, // the browser automatically sets the correct multipart headers
+        body: formData, 
       })
 
       const data = await response.json()
@@ -41,7 +41,7 @@ export function CreatePost({ onPostCreated }: { onPostCreated: () => void }) {
       // 3. Reset form
       setContent('')
       setFile(null)
-      onPostCreated() // Refresh the feed
+      onPostCreated() 
       alert("Post shared!")
       
     } catch (error: any) {
@@ -59,7 +59,7 @@ export function CreatePost({ onPostCreated }: { onPostCreated: () => void }) {
             placeholder="What's on your mind?" 
             value={content}
             onChange={(e) => setContent(e.target.value.slice(0, 280))}
-            className="resize-none border-none focus-visible:ring-0 text-lg p-0"
+            className="resize-none border-none focus-visible:ring-0 text-lg p-4"
           />
           <p className="text-right text-xs text-slate-400 mt-2">
             {content.length}/280
@@ -84,7 +84,7 @@ export function CreatePost({ onPostCreated }: { onPostCreated: () => void }) {
                     const selectedFile = e.target.files?.[0]
                     if (selectedFile && selectedFile.size > 2 * 1024 * 1024) {
                       alert("Image is too large! Please select a file under 2MB.")
-                      e.target.value = "" // Reset the input
+                      e.target.value = "" 
                       setFile(null)
                       return
                     }
