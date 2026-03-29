@@ -311,7 +311,7 @@ export default function HomePage() {
                       <Trash2 size={18} />
                     </button>
                   )}
-                  {/* 3-dot option button removed */}
+                  
                 </div>
 
                 {/* Content */}
@@ -352,7 +352,7 @@ export default function HomePage() {
                     <MessageCircle size={20} strokeWidth={2} />
                     <span className="text-sm font-bold">{post.comments?.length || 0}</span>
                   </button>
-                  {/* Share button removed from here */}
+                  
                 </div>
 
                 {/* Expanded Section */}

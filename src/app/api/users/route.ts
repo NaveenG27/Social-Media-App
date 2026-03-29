@@ -5,8 +5,7 @@ import { AuthService } from '@/services/auth.service';
 
 export async function GET(request: Request) {
   try {
-    // Optionally securing the route by verifying an authenticated session 
-    // depending on the platform's public/private intent. 
+     
     await AuthService.getCurrentUser();
 
     const { searchParams } = new URL(request.url);

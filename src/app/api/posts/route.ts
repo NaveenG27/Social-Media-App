@@ -25,7 +25,7 @@ export async function POST(request: Request) {
 
     // Validate and upload image if present
     if (file && file.size > 0) {
-      validateImage(file); // Throws AppError natively 
+      validateImage(file);  
 
       const fileExt = file.name.split('.').pop();
       const fileName = `${user.id}-${Math.random()}.${fileExt}`;

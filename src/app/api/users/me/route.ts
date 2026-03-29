@@ -38,7 +38,7 @@ export async function POST(request: Request) {
 
     const { validateImage } = await import('@/lib/validators/image');
     
-    // Throws an error directly if invalid
+    
     validateImage(file);
 
     const supabase = await createClient();

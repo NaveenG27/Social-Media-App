@@ -16,7 +16,7 @@ export async function GET(
 
     const supabase = await createClient();
 
-    // Fetch user profile stats utilizing PostgREST native (count) to avoid separate heavier subqueries
+    // Fetch user profile stats 
     const { data: profile, error } = await supabase
       .from('profiles')
       .select('id, username, bio, avatar_url, website, location, followers_count, posts(count)')
@@ -27,8 +27,7 @@ export async function GET(
       throw new AppError('User not found', 404);
     }
 
-    // Unpack Supabase nested count array safely
-    // PostgREST embedded count comes structurally as an array with an object { count: number }
+    
     const postsCount = profile.posts?.[0]?.count || 0;
 
     const formattedData = {

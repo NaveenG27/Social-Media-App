@@ -143,7 +143,7 @@ export default function ProfilePage() {
   const [editPostContent, setEditPostContent] = useState('')
   const [openMenuId, setOpenMenuId] = useState<string | null>(null)
 
-  // FETCH POSTS WITH DUPLICATE KEY PROTECTION
+  
   const fetchUserPosts = useCallback(async (isInitial = false) => {
     if (!user?.id) return
     setLoadingMore(true)
@@ -163,7 +163,7 @@ export default function ProfilePage() {
         const fetchedPosts = data as Post[]
         if (isInitial) return fetchedPosts
         
-        // Prevent duplicates when clicking "Show More"
+
         const existingIds = new Set(prev.map(p => p.id))
         const uniqueNewPosts = fetchedPosts.filter(p => !existingIds.has(p.id))
         return [...prev, ...uniqueNewPosts]
@@ -197,7 +197,7 @@ export default function ProfilePage() {
       })
     }
 
-    // Refresh only the first page and reset state to avoid duplicate keys during real-time sync
+    
     const { data: postData } = await supabase.from('posts')
       .select('*, like_count, comment_count')
       .eq('user_id', authUser.id)

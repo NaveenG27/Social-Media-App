@@ -11,9 +11,7 @@ export async function DELETE(
   try {
     const user = await AuthService.getCurrentUser();
     
-    // In Next.js 15+, dynamic params are promises that must be awaited
-    // Note: Since this is purely backend routing without app router caching complexities in this context,
-    // we safely await it.
+    
     const resolvedParams = await params;
     const postId = resolvedParams.post_id;
 
